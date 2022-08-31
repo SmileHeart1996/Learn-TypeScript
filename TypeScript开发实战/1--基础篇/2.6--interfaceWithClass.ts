@@ -54,4 +54,3 @@ class AutoTest implements AutoInterface {
 // 子类也可以实现继承自父类的接口(很自由，但不知道有啥用，并且用起来稍有点绕)
 // 因为它的父类Auto有这个属性，所以它不用重复定义
 class Bus extends Auto implements AutoInterface {};
-
