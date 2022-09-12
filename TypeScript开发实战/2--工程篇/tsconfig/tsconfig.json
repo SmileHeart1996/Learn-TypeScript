@@ -1,0 +1,50 @@
+{
+    // 配置是可以继承的
+    "extends": "./tsconfig.base.json",
+    "compileOnSave": true,  // 保存文件时让编译器自动编译
+    // 文件选项
+    // 要编译的文件列表
+    "files": [
+        "./src/a.ts",
+    ],
+    // 要编译的(目录下)的文件
+    // 通配符：* 所有文件; ** 任意层
+    "include": [
+        "src/**/*"
+    ],
+    // 编译器要排除的文件或文件夹
+    "exclude": [
+        "src/test"
+    ],
+    // 编译选项
+    "compilerOptions": {
+        "diagnostics": true,   // 打印诊断信息
+        "target": "esnext",    // 目标语言的版本
+        "module": "esnext",    // 生成代码的模块标准
+        // TS需要引用的类库(声明文件)，es5默认为['dom', 'es5', 'scripthost']
+        "lib": ["dom", "es5", "scripthost", "esnext"],
+
+        "allowJs": true,       // 允许编译js、jsx文件
+        "checkJs": true,       // 允许在js文件中报错，通常与allowJs一起使用
+        "outDir": "./out",     // 指定输出目录
+        // 指定输入文件映射到输出的目录(控制输出目录结构)
+        "rootDir": "./",
+
+        "declaration": true,          // 生成声明文件
+        "declarationDir": "./d",      // 指定声明文件路径
+        "emitDeclarationOnly": true,  // 只生成声明文件
+        "sourceMap": true,           // 生成目标文件的sourcemap
+        // "inlineSourceMap": true,     // 生成目标文件的inline-sourcemap
+        "declarationMap": true,      // 生成声明文件的sourcemap
+        "typeRoots": [],             // 声明文件目录，默认node_modules/@types
+        "types": [],                 // 指定需要加载的声明文件包
+
+        "esModuleInterop": true,     // 允许export = 导出，由import from导入
+        "moduleResolution": "node",  // 模块解析策略
+        "baseUrl": "./",             // 解析非相对模块基地址(即import没有写'./')
+        "paths": {},                 // 路径映射，相对于baseUrl
+        "rootDirs": ["src", "out"],  // 和rootDir完全不同，它是将多个目录放在一个虚拟目录下，用于运行时
+    }
+    // 工程引用(ts3.0)：灵活配置输出目录，将大的项目拆分为很多小项目(多tsconfig文件)
+    
+}
