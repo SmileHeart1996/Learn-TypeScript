@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-// 三种，源码自带声明问文件；放到@types里；没有，自己写；
+// 三种，源码自带声明文件；放到@types里；没有，自己写；
 console.log($);
 
 globalLib({x: 1});
